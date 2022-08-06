@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    gateway:
+      instance:
+       hostname: my-gateway.com
+      routes: 
+      - id: r1
+        uri: lb://hopital-service 
+        predicates:
+        - Path= /hopital/**, /specialites/**,/hopitals/**
+      - id: r2
+        uri: lb://reservation-service
+        predicates:
+        - Path= /reservation/**, /reservations/**
+server:
+ port: 8888
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: http://localhost:8787/eureka/
