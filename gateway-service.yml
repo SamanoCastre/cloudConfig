@@ -7,7 +7,7 @@ spring:
       - id: r1
         uri: lb://hopital-service 
         predicates:
-        - Path= /hopital/**, /specialites/**,/hopitals/**
+        - Path= /hopital/**,/hopitals/**,/specialite/**, /specialites/**, /disponibilite/**, /disponibilites/**
       - id: r2
         uri: lb://reservation-service
         predicates:
